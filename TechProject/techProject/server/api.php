@@ -46,32 +46,31 @@ if(isset($data->action) && $data->action == 'login')
 
 
 /******** projectDetails	*******/
-/*
-if(isset($data->projectName))
+
+if(isset($data->action) && $data->action == 'projectFound')
 {
-    $projectName = $data->projectName;
+    $name = $data->user_name;
 
     $link = mysqli_connect("localhost","root","","kickstarter") or die("Error " . mysqli_error($link));
 
-    $query=sprintf("SELECT * FROM projects WHERE projectName='%s' LIMIT 1;", mysqli_real_escape_string($link, $projectName));
+    $query=sprintf("SELECT * FROM users WHERE email='%s' LIMIT 1;", mysqli_real_escape_string($link, $name));
     $result = mysqli_query($link, $query);
     if(mysqli_num_rows($result) > 0){
 
-        $response = array("err"=>0, "projectExists" => 1);
-
+        $response = array("err"=>0, "proFound" => 1);
         echo json_encode($response);
     }
 
 
     else{
 
-        $response = array("err"=>0, "projectExists" => 0);
+        $response = array("err"=>0, "proFound" => 0);
 
         echo json_encode($response);
 
     }
 }
-*/
+
 /******** SignUp	*******/
 
 if(isset($data->action) && $data->action == 'signUp')

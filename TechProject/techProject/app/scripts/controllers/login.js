@@ -7,8 +7,8 @@ angular.module('wepappApp')
         $scope.isUserLoggedIn = true;
 
                 $scope.loginInfo = {
-                    email: "a123@gmail.com",
-                    password: "qaz123"
+                    email: "",
+                    password: ""
                 };
 
                 $scope.isUserLoggedIn = false;
@@ -54,6 +54,7 @@ angular.module('wepappApp')
                     else{
 
                         alert('No such user');
+                        $location.path('/signup');
 
                     }
 

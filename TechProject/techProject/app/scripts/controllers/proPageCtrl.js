@@ -12,16 +12,35 @@ angular.module('wepappApp')
 
 
             $scope.project = {
-
+                projectName: "",
                 images:[
 
-
-
                 ]
-
-
-
             };
+
+            if($cookies.get('project_exists') == 1)
+            {
+                serverCommService.getProjectDetails( $cookies.get('user_name'), function(response){
+                    //
+                    //var arr = new Array(response['images']);
+                    console.log(response.length);
+                    //console.log(typeof arr);
+
+                    if(response['proFounds'] == 1) {
+
+                        $scope.project.projectName = response['project_name'];
+                        alert ($scope.project.projectName);
+                    }
+                }, function(){});
+
+
+            }
+            else{
+                alert("You dont have a project, please add one");
+                $location.path('/addProject');
+            }
+
+
 
             if($cookies.get('project_exists') == 1)
             {
@@ -51,20 +70,7 @@ angular.module('wepappApp')
                     }
 
 
-
-
-                    else{
-
-
-                    }
-
-
                 }, function(){});
-
-
-
-
-
 
 
 
@@ -81,8 +87,6 @@ angular.module('wepappApp')
                 alert("You dont have a project, please add one");
                 $location.path('/addProject');
             }
-
-
 
 
         };

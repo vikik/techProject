@@ -132,6 +132,31 @@ angular.module('wepappApp')
         };
 
 
+        this.getProjectDetails = function (userName, successCB, failedCB) {
+            var url = 'http://localhost/TechProject/techProject/server/api.php';
+            console.log(url);
+            var data = {
+                action: 'projectFound',
+                user_name: userName
+            };
+
+            this.sendToServer(data, url,
+                function (response) {
+                    if (!response.err) {
+                        // toastr.success(response.data.response);
+                        //alert('sadasdasdasdasdasdsadsadasd');
+                        console.log(response);
+                        successCB(response);
+                        console.log("Service");
+                    }
+                },
+                function (e) {
+                    alert('Server error - please try again later');
+                    console.log(e);
+                    alert('Server error - please try again later');
+                }
+            );
+        };
 
         this.sendToServer = function (data, url, callbackSuccess, callbackError) {
 
