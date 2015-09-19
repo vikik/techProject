@@ -1,0 +1,35 @@
+<div class="row" ng-init="init()">
+  <div class="col-lg-5">
+    <br><h4>Project Name: {{project.projectName}}</h4>
+    </br>
+    <iframe id="video" width="700" height="300" src="https://player.vimeo.com/video/124916222?autoplay=1" frameborder="2" allowfullscreen></iframe>
+  </div>
+</div>
+<div class="col-lg-12">
+  <br>
+
+  <div class="col-lg-12">
+      <img ng-repeat="image in project.images" ng-src="{{image}}" style="width:180px;height:200px">
+
+
+    <!--<img ng-src="{{projects[0].image1}}" style="width:180px;height:200px">-->
+    <!--<img ng-src="{{projects[0].image2}}" style="width:180px;height:200px">-->
+    <!--<img ng-src="{{projects[0].image3}}" style="width:180px;height:200px">-->
+    <br>
+    <br>
+  </div>
+
+    Donate:
+    <button ng-click="count = count + 10" ng-init="count=0"> 10&#8362; </button>
+    <button ng-click="count = count + 50" ng-init="count=0"> 50&#8362; </button>
+    <button ng-click="count = count + 100" ng-init="count=0"> 100&#8362; </button>
+    <button ng-click="count = count + 500" ng-init="count=0"> 500&#8362; </button>
+    </br>
+
+<span></br>
+  <b> Money Raced: </b> {{count}} &#8362; </br>
+  <b> Money left: </b> {{projects[0].moneyTarget - count}} &#8362; <b>Percent: </b> {{(count*100)/projects[0].moneyTarget}} %</br>
+  <b> Target goal: </b> {{projects[0].moneyTarget}} &#8362;</br>
+</span>
+  </div>
+</div>

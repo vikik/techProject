@@ -1,0 +1,16 @@
+<div class="row" ng-controller="mainCtrl">
+  <h3 align="left">Amount of valid projects: </h3><br>
+  <div class="col-lg-5" ng-repeat="pro in projects">
+    <div class="thumbnail">
+      <a href = "#/about.html">
+        <img ng-src="{{pro.image1}}" style="width:180px;height:200px">
+      </a>
+      <br><h4>Project Name: {{pro.projectName}}</h4>
+      <p>Money Target: {{pro.moneyTarget}}</p>
+    </div>
+  </div>
+</div>
+</class>
+<div class="col-md-5">
+  <br><input type="button" onclick="location.href='#/addProject';" value="Add your own project" />
+</div>

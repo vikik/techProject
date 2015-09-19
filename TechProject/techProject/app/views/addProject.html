@@ -1,0 +1,78 @@
+<div>
+<form class="form-horizontal" name="insertEmployeeForm" ng-init="init()">
+  <fieldset>
+    <legend>Insert New Project</legend>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Project Name</label>
+      <div class="col-lg-7">
+        <input type="text" required class="form-control" ng-model="projectName" placeholder="Project Name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-1 control-label" >Goal</label>
+      <div class="col-lg-7 col-lg-offset-1">
+        <input type="text" required class="form-control" ng-model="goal" placeholder="Money goal">
+      </div>
+    </div>
+
+      <div class="form-group">
+          <label class="col-lg-1 control-label">Description</label>
+          <div class="col-lg-7 col-lg-offset-1">
+              <textarea  required class="form-control" ng-model="desc" placeholder="Project Description"> </textarea>
+          </div>
+      </div>
+
+    <div class="form-group">
+      <label class="col-lg-1 control-label">EndDate Time</label>
+      <div class="col-lg-7 col-lg-offset-1">
+        <input type="date" required  ng-model="endDate" class="form-control">
+          </div>
+    </div>
+
+      <hr>
+
+
+
+
+      <!---->
+      <div flow-init="{
+                    target: 'http://localhost/TechProject/techProject/server/upload.php',
+                    testChunks:false,
+                    query: getUser
+                    }"
+
+           flow-files-submitted="$flow.upload()"
+           flow-file-success="uploader.controllerFn($flow, $file, $message)"
+           flow-file-error="uploader.fileUploadError($flow, $file, $message)"
+            flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" class="ng-scope">
+          <div class="drop" flow-drop="" ng-class="dropClass">
+              <span class="btn btn-default" flow-btn="">Upload Image<input type="file" multiple="multiple" style="visibility: hidden; position: absolute;"></span>
+              <span class="btn btn-default" flow-btn="" flow-directory="" ng-show="$flow.supportDirectory">Upload Folder of Images<input type="file" multiple="multiple" webkitdirectory="webkitdirectory" style="visibility: hidden; position: absolute;"></span>
+              <b>OR</b>
+              Drag And Drop your images here
+          </div>
+
+          <br>
+
+          <div>
+
+              <!-- ngRepeat: file in $flow.files -->
+              <div class="clear"></div>
+          </div>
+
+      </div>
+
+<hr>
+
+
+      <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+              <button type="button" ng-click="createProject()" class="btn btn-primary">Add Project</button>
+              <button type="reset" value="Reset">Reset</button>
+          </div>
+      </div>
+
+
+  </fieldset>
+</form>
+</div>
