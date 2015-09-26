@@ -72,7 +72,6 @@ if(isset($data->action) && $data->action == 'projectFound')
 }
 
 /******** allProjects	*******/
-
 if(isset($data->action) && $data->action == 'allProjects')
 {
     $link = mysqli_connect("localhost","root","","kickstarter") or die("Error " . mysqli_error($link));
@@ -158,25 +157,42 @@ if(isset($data->action) && $data->action == 'createProject')
 /******** update donation	*******/
 if(isset($data->action) && $data->action == 'updateDonation')
 {
-    $projectName= $data->project_name;
-    $goal =$data->goal;
+    $userName= $data->user_name;
+    $donate_amount = $data->donate_amount;
 
     $link = mysqli_connect("localhost","root","","kickstarter") or die("Error " . mysqli_error($link));
 
-    $query1 =sprintf("SELECT `goal` FROM `users` WHERE `project_name`='%s' LIMIT 1;", mysqli_real_escape_string($link, $projectName));
-    $result = mysqli_query($link, $query);
+    $query1 =sprintf("SELECT `goal`, `donated` FROM `users` WHERE `email`='%s' LIMIT 1;", mysqli_real_escape_string($link, $userName));
+    $result = mysqli_query($link, $query1);
 
-    echo $result;
-   // $query = sprintf("UPDATE `users` SET `project_name`='%s', `goal`='%s', `end_date`='%s', `desc`='%s' WHERE `email`='%s' "  ,  mysqli_real_escape_string($link, $projectName), $goal, mysqli_real_escape_string($link, $endDate), mysqli_real_escape_string($link, $desc),  mysqli_real_escape_string($link, $projectsOwner));
-  //  $result = mysqli_query($link, $query);
-/*
+    $resultSet = array();
+
+    while($row = mysqli_fetch_array($result)) {
+        $resultSet = $row;
+        //echo $resultSet;
+    }
+
+    $goal = $resultSet['goal'];
+    $donated = $resultSet['donated'];
+
+    $newDonated = $donated + $donate_amount;
+
+    //TODO VIKI UPDATE STATEMENT AND ECHO BACK RESPONSE STATING IF UPDATE HAS SUCCEEDED OR FAILD
+
+    $query = sprintf("UPDATE `users` SET `donated`='%d' WHERE `email`='%s'" , $newDonated, $userName);
+
+    $result = mysqli_query($link, $query);
     if($result)
         $response = array("err" => 0, "donated" => 1);
     else
-        $response = array("err" => 0, "donated" => 0);
+        $response = array("err" => 1, "donated" => 0);
 
     echo json_encode($response);
-*/
+
+    /*
+    $response = array("err"=>0, "donated"=>1);
+    echo json_encode($response);
+    */
 }
 
 /************* get user images ************/

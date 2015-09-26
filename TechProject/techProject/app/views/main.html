@@ -1,9 +1,10 @@
-<div class="row" ng-init="init()">
+<div class="row" ng-init="init()  ">
   <h3 align="left">Amount of valid projects: </h3><br>
   <div class="col-lg-5" ng-repeat="pro in projects">
     <div class="thumbnail">
       <a href = "#/about.html">
-        <img ng-src="{{pro.images}}" style="width:180px;height:200px">
+
+        <img ng-src="{{pro.images[0]}}" style="width:180px;height:200px">
       </a>
       <br><h4>Project Name: {{pro.project_name}}</h4>
       <p>Money Target: {{pro.goal}} </p>

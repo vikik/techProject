@@ -46,11 +46,13 @@ angular.module('wepappApp')
         var getUserImages = function(aProject){
 
 
+
+
             serverCommService.getUserImages(aProject['user_name'], function(response){
 
                 //
-                //var arr = new Array(response['images']);
-                console.log(response);
+               // console.log("images for user: "+aProject['user_name']);
+               // console.log(response);
                 //console.log(typeof arr);
                 if(response)
                 {
@@ -63,6 +65,8 @@ angular.module('wepappApp')
                             continue;
                         aProject['images'].push('http://localhost/kick_last/TechProject/techProject/server/users/'+aProject['user_name']+"/"+response[i]);
                     }
+                    //console.log("images full paths for user: "+aProject['user_name']);
+                    //console.log(aProject['images']);
                 }
             }, function(){});
 

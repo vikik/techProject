@@ -7,7 +7,8 @@ angular.module('wepappApp')
             $scope.project = {
                 projectName: "",
                 goal: "",
-                donated: "",
+                donated: 0,
+                moneyLeft: 0,
                 desc: "",
                 video: "",
                 images:[
@@ -28,6 +29,7 @@ angular.module('wepappApp')
                         $scope.project.projectName = response['project_name'];
                         $scope.project.goal = response['goal'];
                         $scope.project.donated = response['donated'];
+                        $scope.project.moneyLeft = response['goal'] - response['donated'];
                         $scope.project.desc = response['desc'];
                         $scope.project.video = $sce.trustAsResourceUrl(response['video']);
 
@@ -88,12 +90,21 @@ angular.module('wepappApp')
                 {
 
                     alert("Thank you!");
+                    $scope.project.donated = parseInt($scope.project.donated) + parseInt(donateAmount);
+                    var checkMoneyLeft = $scope.project.goal - $scope.project.donated;
+                    //alert(checkMoneyLeft);
+                    if(checkMoneyLeft >= 0){
+                        $scope.project.moneyLeft = checkMoneyLeft
+                    }
+                    else{
+                        $scope.project.moneyLeft = 0;
+                    };
 
-                    $location.path('/projectPage');
-
+                    //  $scope.project.moneyLeft = $scope.project.goal - $scope.project.donated;
+                    
                 }
                 else{
-                    alert('Failed to donate');
+                    alert('Failed to donate, please try again');
                 }
 
 

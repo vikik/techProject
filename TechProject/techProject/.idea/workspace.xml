@@ -35,33 +35,31 @@
       <file leaf-file-name="projectPage.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/projectPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.076923">
-              <caret line="46" column="66" selection-start-line="46" selection-start-column="66" selection-end-line="46" selection-end-column="66" />
+            <state vertical-scroll-proportion="-16.5">
+              <caret line="81" column="44" selection-start-line="81" selection-start-column="44" selection-end-line="81" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="proPageCtrl.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="proPageCtrl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/proPageCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.7549342">
+              <caret line="103" column="20" selection-start-line="103" selection-start-column="20" selection-end-line="103" selection-end-column="20" />
               <folding>
-                <element signature="e#456#1481#0" expanded="false" />
-                <element signature="e#556#1449#0" expanded="false" />
-                <element signature="e#1694#2573#0" expanded="false" />
-                <element signature="e#3195#3951#0" expanded="false" />
+                <element signature="e#1814#2693#0" expanded="false" />
+                <element signature="e#3870#4626#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serverComm.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="serverComm.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/services/serverComm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34210527">
-              <caret line="194" column="14" selection-start-line="194" selection-start-column="14" selection-end-line="194" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="192" column="29" selection-start-line="192" selection-start-column="16" selection-end-line="192" selection-end-column="29" />
               <folding>
                 <element signature="e#2207#3187#0" expanded="false" />
                 <element signature="e#3261#4185#0" expanded="false" />
@@ -75,21 +73,21 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.769231">
-              <caret line="168" column="17" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
+            <state vertical-scroll-proportion="-16.5">
+              <caret line="181" column="75" selection-start-line="181" selection-start-column="75" selection-end-line="181" selection-end-column="75" />
               <folding>
                 <element signature="e#296#1235#0#PHP" expanded="false" />
-                <element signature="e#2110#2725#0#PHP" expanded="false" />
-                <element signature="e#2753#3744#0#PHP" expanded="false" />
-                <element signature="e#3777#4691#0#PHP" expanded="false" />
-                <marker date="1443261806353" expanded="true" signature="578:640" placeholder="SELECT * FRO..users..." />
-                <marker date="1443261806353" expanded="true" signature="1490:1534" placeholder="SELECT * FRO..users..." />
-                <marker date="1443261806353" expanded="true" signature="2296:2342" placeholder="SELECT * FRO..users..." />
-                <marker date="1443261806353" expanded="true" signature="3035:3110" placeholder="INSERT INTO ..." />
-                <marker date="1443261806353" expanded="true" signature="4983:5035" placeholder="SELECT `goal..." />
-                <marker date="1443261806353" expanded="true" signature="4983:5036" placeholder="SELECT `goal..." />
-                <marker date="1443261806353" expanded="true" signature="4983:5043" placeholder="SELECT `goal..." />
-                <marker date="1443261806353" expanded="true" signature="4983:5181" placeholder="SELECT `goal..." />
+                <element signature="e#1272#2076#0#PHP" expanded="false" />
+                <element signature="e#2109#2724#0#PHP" expanded="false" />
+                <element signature="e#2752#3743#0#PHP" expanded="false" />
+                <marker date="1443278876407" expanded="true" signature="578:640" placeholder="SELECT * FRO..users..." />
+                <marker date="1443278876407" expanded="true" signature="1490:1534" placeholder="SELECT * FRO..users..." />
+                <marker date="1443278876407" expanded="true" signature="2295:2341" placeholder="SELECT * FRO..users..." />
+                <marker date="1443278876407" expanded="true" signature="3034:3109" placeholder="INSERT INTO ..." />
+                <marker date="1443278876407" expanded="true" signature="4995:5051" placeholder="SELECT `goal..." />
+                <marker date="1443278876407" expanded="true" signature="4995:5052" placeholder="SELECT `goal..." />
+                <marker date="1443278876407" expanded="true" signature="4995:5059" placeholder="SELECT `goal..." />
+                <marker date="1443278876407" expanded="true" signature="4995:5908" placeholder="SELECT `goal..." />
               </folding>
             </state>
           </provider>
@@ -135,10 +133,10 @@
         <option value="$PROJECT_DIR$/app/scripts/controllers/loginCtrl.js" />
         <option value="$PROJECT_DIR$/app/views/main.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/mainCtrl.js" />
-        <option value="$PROJECT_DIR$/app/views/projectPage.html" />
-        <option value="$PROJECT_DIR$/server/api.php" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/proPageCtrl.js" />
         <option value="$PROJECT_DIR$/app/services/serverComm.js" />
+        <option value="$PROJECT_DIR$/server/api.php" />
+        <option value="$PROJECT_DIR$/app/views/projectPage.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/proPageCtrl.js" />
       </list>
     </option>
   </component>
@@ -512,7 +510,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="32" />
+      <option name="time" value="34" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -811,22 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/mainCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5250432">
-          <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14604811">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="10.153846">
@@ -843,40 +825,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/projectPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.076923">
-          <caret line="46" column="66" selection-start-line="46" selection-start-column="66" selection-end-line="46" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/guestPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27960527">
           <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.769231">
-          <caret line="168" column="17" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
-          <folding>
-            <element signature="e#296#1235#0#PHP" expanded="false" />
-            <element signature="e#2110#2725#0#PHP" expanded="false" />
-            <element signature="e#2753#3744#0#PHP" expanded="false" />
-            <element signature="e#3777#4691#0#PHP" expanded="false" />
-            <marker date="1443261806353" expanded="true" signature="578:640" placeholder="SELECT * FRO..users..." />
-            <marker date="1443261806353" expanded="true" signature="1490:1534" placeholder="SELECT * FRO..users..." />
-            <marker date="1443261806353" expanded="true" signature="2296:2342" placeholder="SELECT * FRO..users..." />
-            <marker date="1443261806353" expanded="true" signature="3035:3110" placeholder="INSERT INTO ..." />
-            <marker date="1443261806353" expanded="true" signature="4983:5035" placeholder="SELECT `goal..." />
-            <marker date="1443261806353" expanded="true" signature="4983:5036" placeholder="SELECT `goal..." />
-            <marker date="1443261806353" expanded="true" signature="4983:5043" placeholder="SELECT `goal..." />
-            <marker date="1443261806353" expanded="true" signature="4983:5181" placeholder="SELECT `goal..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -890,28 +843,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/proPageCtrl.js">
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/mainCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
+          <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18378378">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.5">
+          <caret line="181" column="75" selection-start-line="181" selection-start-column="75" selection-end-line="181" selection-end-column="75" />
           <folding>
-            <element signature="e#456#1481#0" expanded="false" />
-            <element signature="e#556#1449#0" expanded="false" />
-            <element signature="e#1694#2573#0" expanded="false" />
-            <element signature="e#3195#3951#0" expanded="false" />
+            <element signature="e#296#1235#0#PHP" expanded="false" />
+            <element signature="e#1272#2076#0#PHP" expanded="false" />
+            <element signature="e#2109#2724#0#PHP" expanded="false" />
+            <element signature="e#2752#3743#0#PHP" expanded="false" />
+            <marker date="1443278876407" expanded="true" signature="578:640" placeholder="SELECT * FRO..users..." />
+            <marker date="1443278876407" expanded="true" signature="1490:1534" placeholder="SELECT * FRO..users..." />
+            <marker date="1443278876407" expanded="true" signature="2295:2341" placeholder="SELECT * FRO..users..." />
+            <marker date="1443278876407" expanded="true" signature="3034:3109" placeholder="INSERT INTO ..." />
+            <marker date="1443278876407" expanded="true" signature="4995:5051" placeholder="SELECT `goal..." />
+            <marker date="1443278876407" expanded="true" signature="4995:5052" placeholder="SELECT `goal..." />
+            <marker date="1443278876407" expanded="true" signature="4995:5059" placeholder="SELECT `goal..." />
+            <marker date="1443278876407" expanded="true" signature="4995:5908" placeholder="SELECT `goal..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/services/serverComm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34210527">
-          <caret line="194" column="14" selection-start-line="194" selection-start-column="14" selection-end-line="194" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="192" column="29" selection-start-line="192" selection-start-column="16" selection-end-line="192" selection-end-column="29" />
           <folding>
             <element signature="e#2207#3187#0" expanded="false" />
             <element signature="e#3261#4185#0" expanded="false" />
             <element signature="e#4263#5180#0" expanded="false" />
             <element signature="e#5245#6063#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/projectPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.5">
+          <caret line="81" column="44" selection-start-line="81" selection-start-column="44" selection-end-line="81" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/proPageCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7549342">
+          <caret line="103" column="20" selection-start-line="103" selection-start-column="20" selection-end-line="103" selection-end-column="20" />
+          <folding>
+            <element signature="e#1814#2693#0" expanded="false" />
+            <element signature="e#3870#4626#0" expanded="false" />
           </folding>
         </state>
       </provider>

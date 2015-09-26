@@ -190,7 +190,7 @@ angular.module('wepappApp')
             var data = {
                 action: 'updateDonation',
                 user_name: userName,
-                donateAmount: donateAmount
+                donate_amount: donateAmount
 
             };
 
