@@ -11,7 +11,7 @@ angular.module('wepappApp')
 
         this.createProject = function (userName, projectName, goal, endDate, desc, successCB, failedCB) {
 
-            var url = 'http://localhost/TechProject/techProject/server/api.php';
+            var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
             console.log(url);
             var data = {
                 action: 'createProject',
@@ -44,7 +44,7 @@ angular.module('wepappApp')
 
     this.checkIfUserExists = function (userName, password, successCB, failedCB) {
 
-      var url = 'http://localhost/TechProject/techProject/server/api.php';
+      var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
       console.log(url);
       var data = {
           action: 'login',
@@ -73,7 +73,7 @@ angular.module('wepappApp')
 
         this.signUpNewUser = function (userName, email, password, successCB, failedCB) {
 
-            var url = 'http://localhost/TechProject/techProject/server/api.php';
+            var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
             console.log(url);
             var data = {
                 action: 'signUp',
@@ -104,7 +104,7 @@ angular.module('wepappApp')
 
         this.getUserImages = function (userName, successCB, failedCB) {
 
-            var url = 'http://localhost/TechProject/techProject/server/api.php';
+            var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
             console.log(url);
             var data = {
                 action: 'getUserImages',
@@ -118,7 +118,7 @@ angular.module('wepappApp')
                     if (!response.err) {
                         // toastr.success(response.data.response);
                         // alert('sadasdasdasdasdasdsadsadasd');
-                        console.log(response);
+                       // console.log(response);
                         successCB(response);
                         console.log("Service");
                     }
@@ -133,7 +133,7 @@ angular.module('wepappApp')
 
 
         this.getProjectDetails = function (userName, successCB, failedCB) {
-            var url = 'http://localhost/TechProject/techProject/server/api.php';
+            var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
             console.log(url);
             var data = {
                 action: 'projectFound',
@@ -157,6 +157,60 @@ angular.module('wepappApp')
                 }
             );
         };
+
+
+        this.getAllProjects = function (successCB, failedCB) {
+            var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
+            console.log(url);
+            var data = {
+                action: 'allProjects'
+            };
+
+            this.sendToServer(data, url,
+                function (response) {
+
+                    if (!response.err) {
+                        // toastr.success(response.data.response);
+                        console.log(response);
+                        successCB(response);
+                       // console.log("Service");
+                    }
+                },
+                function (e) {
+                    alert('Server error - please try again later');
+                    console.log(e);
+                    alert('Server error - please try again later');
+                }
+            );
+        };
+
+        this.donate = function (userName, successCB, failedCB) {
+            var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
+            console.log(url);
+            var data = {
+                action: 'updateDonation',
+                user_name: userName
+            };
+
+            this.sendToServer(data, url,
+                function (response) {
+                    if (!response.err) {
+                        // toastr.success(response.data.response);
+                        //alert('sadasdasdasdasdasdsadsadasd');
+                        console.log(response);
+                        successCB(response);
+                        console.log("Service");
+                    }
+                },
+                function (e) {
+                    alert('Server error - please try again later');
+                    console.log(e);
+                    alert('Server error - please try again later');
+                }
+            );
+        };
+
+
 
         this.sendToServer = function (data, url, callbackSuccess, callbackError) {
 

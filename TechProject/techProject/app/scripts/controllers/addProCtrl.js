@@ -51,7 +51,7 @@ angular.module('wepappApp')
 
             //DEBUG
             if(!$scope.user)
-                $scope.user = 'andr';
+                $scope.user = 'v123@gmail.com';
 
 
             return {user:    $scope.user };

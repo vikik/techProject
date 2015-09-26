@@ -49,7 +49,7 @@ angular
       })
       .when('/about', {
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
+        controller: 'about',
         controllerAs: 'about'
       })
       .when('/contact', {
