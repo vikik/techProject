@@ -1,10 +1,5 @@
-/**
- * Created by VIKI on 03/09/2015.
- */
-
 angular.module('wepappApp')
     .controller('proPageCtrl', function($scope,$cookies, serverCommService,  $location, $sce) {
-        //$scope.increment =
 
         $scope.init = function(){
 
@@ -18,8 +13,6 @@ angular.module('wepappApp')
                 images:[
                 ]
             };
-
-
 
             if($cookies.get('project_exists') == 1)
             {
@@ -85,13 +78,11 @@ angular.module('wepappApp')
                 alert("You dont have a project, please add one");
                 $location.path('/addProject');
             }
-
-
         };
 
         $scope.donate=function(donateAmount){
 
-            serverCommService.donate(function(response){
+            serverCommService.donate($cookies.get('user_name'), donateAmount, function(response){
 
                 if(response['donated'] == 1)
                 {

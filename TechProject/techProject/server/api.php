@@ -158,23 +158,25 @@ if(isset($data->action) && $data->action == 'createProject')
 /******** update donation	*******/
 if(isset($data->action) && $data->action == 'updateDonation')
 {
-
-    $projectsOwner = $data->user_name;
     $projectName= $data->project_name;
     $goal =$data->goal;
-    $endDate = $data->end_date;
-    $desc = $data->desc;
 
     $link = mysqli_connect("localhost","root","","kickstarter") or die("Error " . mysqli_error($link));
 
-    $query = sprintf("UPDATE `users` SET `project_name`='%s', `goal`='%s', `end_date`='%s', `desc`='%s' WHERE `email`='%s' "  ,  mysqli_real_escape_string($link, $projectName), $goal, mysqli_real_escape_string($link, $endDate), mysqli_real_escape_string($link, $desc),  mysqli_real_escape_string($link, $projectsOwner));
+    $query1 =sprintf("SELECT `goal` FROM `users` WHERE `project_name`='%s' LIMIT 1;", mysqli_real_escape_string($link, $projectName));
     $result = mysqli_query($link, $query);
+
+    echo $result;
+   // $query = sprintf("UPDATE `users` SET `project_name`='%s', `goal`='%s', `end_date`='%s', `desc`='%s' WHERE `email`='%s' "  ,  mysqli_real_escape_string($link, $projectName), $goal, mysqli_real_escape_string($link, $endDate), mysqli_real_escape_string($link, $desc),  mysqli_real_escape_string($link, $projectsOwner));
+  //  $result = mysqli_query($link, $query);
+/*
     if($result)
         $response = array("err" => 0, "donated" => 1);
     else
         $response = array("err" => 0, "donated" => 0);
 
     echo json_encode($response);
+*/
 }
 
 /************* get user images ************/

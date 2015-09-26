@@ -184,12 +184,14 @@ angular.module('wepappApp')
             );
         };
 
-        this.donate = function (userName, successCB, failedCB) {
+        this.donate = function (userName, donateAmount, successCB, failedCB) {
             var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
             console.log(url);
             var data = {
                 action: 'updateDonation',
-                user_name: userName
+                user_name: userName,
+                donateAmount: donateAmount
+
             };
 
             this.sendToServer(data, url,
