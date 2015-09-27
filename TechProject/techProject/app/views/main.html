@@ -2,7 +2,7 @@
   <h3 align="left">Amount of valid projects: </h3><br>
   <div class="col-lg-5" ng-repeat="pro in projects">
     <div class="thumbnail">
-      <a href = "#/about.html">
+      <a href = "#/projectPage?projectName={{pro.project_name}}">
 
         <img ng-src="{{pro.images[0]}}" style="width:180px;height:200px">
       </a>

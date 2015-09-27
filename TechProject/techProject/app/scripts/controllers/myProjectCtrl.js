@@ -1,17 +1,11 @@
 angular.module('wepappApp')
-    .controller('proPageCtrl', function($scope, serverCommService,  $location, $sce) {
-
-
+    .controller('myProjectCtrl', function($scope,$cookies, serverCommService,  $location, $sce) {
 
         $scope.init = function(){
 
-            var projectName = $location.search().projectName;
 
-            //alert(paramValue);
-
-            //console.log($location.search());
             $scope.project = {
-                projectName: projectName,
+                projectName: "",
                 goal: "",
                 donated: 0,
                 moneyLeft: 0,
@@ -21,27 +15,45 @@ angular.module('wepappApp')
                 ]
             };
 
-                serverCommService.getProjectDetailsByPName(projectName, function(response){
-                    console.log(response);
+            if($cookies.get('project_exists') == 1)
+            {
+                serverCommService.getProjectDetails( $cookies.get('user_name'), function(response){
 
-                    if(response['proFoundByPName'] == 1) {
+                    //console.log(response.length);
+
+                    if(response['proFound'] == 1) {
                         // alert("***********");
                         // console.log("**************" + $scope.project.projectName);
                         // console.log("---------" + response['project_name']);
 
-                  //      $scope.project.projectName = response['project_name'];
+                        $scope.project.projectName = response['project_name'];
                         $scope.project.goal = response['goal'];
-                       // alert (response['goal']);
                         $scope.project.donated = response['donated'];
                         $scope.project.moneyLeft = response['goal'] - response['donated'];
                         $scope.project.desc = response['desc'];
                         $scope.project.video = $sce.trustAsResourceUrl(response['video']);
 
+
+                        //$scope.project.video = $sce.trustAsResourceUrl(response['video']);
+
+                        // alert ($scope.project.projectName);
+
+
                     }
                 }, function(){});
 
-/*
-                serverCommService.getUserImagesByPName( projectName, function(response){
+
+            }
+            else{
+                alert("You dont have a project, please add one");
+                $location.path('/addProject');
+            }
+
+
+
+            if($cookies.get('project_exists') == 1)
+            {
+                serverCommService.getUserImages( $cookies.get('user_name'), function(response){
                     //
                     //var arr = new Array(response['images']);
                     console.log(response.length);
@@ -56,20 +68,23 @@ angular.module('wepappApp')
                             if(response[i] == "..")
                                 continue;
 
-                         //   $scope.project.images.push('http://localhost/kick_last/TechProject/techProject/server/users/'+$cookies.get('user_name')+"/"+response[i]);
+                            $scope.project.images.push('http://localhost/kick_last/TechProject/techProject/server/users/'+$cookies.get('user_name')+"/"+response[i]);
                         }
                     }
 
 
                 }, function(){});
-            */
+
+            }
+            else{
+                alert("You dont have a project, please add one");
+                $location.path('/addProject');
+            }
         };
 
         $scope.donate=function(donateAmount){
 
-            var projectName = $location.search().projectName;
-
-            serverCommService.donate(projectName , donateAmount, function(response){
+            serverCommService.donate($cookies.get('user_name'), donateAmount, function(response){
 
                 if(response['donated'] == 1)
                 {
