@@ -262,7 +262,6 @@ angular.module('wepappApp')
 
         this.donate = function (projectName, donateAmount, successCB, failedCB) {
             var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
-            console.log(url);
             var data = {
                 action: 'updateDonation',
                 project_name: projectName,
@@ -274,10 +273,38 @@ angular.module('wepappApp')
                 function (response) {
                     if (!response.err) {
                         // toastr.success(response.data.response);
+                        ////alert('sadasdasdasdasdasdsadsadasd');
+                        console.log(response);
+                        successCB(response);
+                        //console.log("Service");
+                    }
+                },
+                function (e) {
+                    alert('Server error - please try again later');
+                    console.log(e);
+                    alert('Server error - please try again later');
+                }
+            );
+        };
+
+        this.updateUsersDonation = function (user_name, donateAmount, successCB, failedCB) {
+
+            var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
+            var data = {
+                action: 'updateUsersDonation',
+                user_name: user_name,
+                donate_amount: donateAmount
+
+            };
+
+            this.sendToServer(data, url,
+                function (response) {
+                    if (!response.err) {
+                        // toastr.success(response.data.response);
                         //alert('sadasdasdasdasdasdsadsadasd');
                         console.log(response);
                         successCB(response);
-                        console.log("Service");
+                        //console.log("Service");
                     }
                 },
                 function (e) {

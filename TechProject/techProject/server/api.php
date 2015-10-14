@@ -245,9 +245,9 @@ if(isset($data->action) && $data->action == 'updateDonation')
 
     $result = mysqli_query($link, $query);
     if($result)
-        $response = array("err" => 0, "donated" => 1);
+        $response = array("err" => 0, "donatedProcess" => 1);
     else
-        $response = array("err" => 1, "donated" => 0);
+        $response = array("err" => 1, "donatedProcess" => 0);
 
     echo json_encode($response);
 
@@ -278,7 +278,7 @@ if(isset($data->action) && $data->action == 'getUserImages')
     }
 
 
-  //      echo "error";
+    //      echo "error";
 
 
     return;
@@ -286,6 +286,38 @@ if(isset($data->action) && $data->action == 'getUserImages')
 
 }
 
+/************* updateUsersDonation ************/
+
+if(isset($data->action) && $data->action == 'updateUsersDonation') {
+    $email = $data->user_name;
+    $donate_amount = $data->donate_amount;
+
+    $link = mysqli_connect("localhost", "root", "", "kickstarter") or die("Error " . mysqli_error($link));
+
+    $query1 = sprintf("SELECT `dDonated` FROM `users` WHERE `email`='%s' LIMIT 1;", mysqli_real_escape_string($link, $email));
+    $result = mysqli_query($link, $query1);
+
+    $resultSet = array();
+
+    while ($row = mysqli_fetch_array($result)) {
+        $resultSet = $row;
+        //echo $resultSet;
+    }
+
+    $dDonated = $resultSet['dDonated'];
+
+    $newdDonated = $dDonated + $donate_amount;
+
+    $query = sprintf("UPDATE `users` SET `dDonated`='%d' WHERE `email`='%s'", $newdDonated, $email);
+
+    $result = mysqli_query($link, $query);
+    if ($result)
+        $response = array("err" => 0, "creditSuccess" => 1);
+    else
+        $response = array("err" => 1, "creditSuccess" => 0);
+
+    echo json_encode($response);
+}
 
 /************* update donator ************/
 

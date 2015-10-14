@@ -72,42 +72,51 @@ angular.module('wepappApp')
              */
         };
 
-        $scope.donate=function(donateAmount){
+        $scope.donate=function(donateAmount)
+        {
 
             if($cookies.get("donator")==1){
 
                 var projectName = $location.search().projectName;
 
+
                 serverCommService.donate(projectName , donateAmount, function(response){
 
-                    if(response['donated'] == 1)
+                    if(response['donatedProcess'] == 1)
                     {
-
                         var creditNum = prompt("Please enter your creditCard number", "For Example: 12-45-67");
 
-                        if (creditNum != null) {
-                            serverCommService.updateDonatorSum(){
+                        if (creditNum != null)
+                        {
+                            var user_name = $cookies.get('user_name');
 
-                            }
+                            serverCommService.updateUsersDonation(user_name,donateAmount, function(response){
+
+                                if(response['creditSuccess'] == 1)
+                                {
+                                    alert("Thank you!");
+
+                                    $scope.project.donated = parseInt($scope.project.donated) + parseInt(donateAmount);
+                                    var checkMoneyLeft = $scope.project.goal - $scope.project.donated;
+                                    //alert(checkMoneyLeft);
+                                    if(checkMoneyLeft >= 0){
+                                        $scope.project.moneyLeft = checkMoneyLeft
+                                    }
+                                    else{
+                                        $scope.project.moneyLeft = 0;
+                                    }
+                                }
+                                else {
+                                    alert('Failed to donate, please try again');
+                                }
+                            }, function(){});
 
 
-                            alert("Thank you!");
-
-                            $scope.project.donated = parseInt($scope.project.donated) + parseInt(donateAmount);
-                            var checkMoneyLeft = $scope.project.goal - $scope.project.donated;
-                            //alert(checkMoneyLeft);
-                            if(checkMoneyLeft >= 0){
-                                $scope.project.moneyLeft = checkMoneyLeft
-                            }
-                            else{
-                                $scope.project.moneyLeft = 0;
-                            };
-
-                            //  $scope.project.moneyLeft = $scope.project.goal - $scope.project.donated;
                         }
                         else {
                             alert('Failed to donate, please try again');
                         }
+
                     }
 
                 }, function(){});
@@ -125,9 +134,7 @@ angular.module('wepappApp')
                     //TO DO update 'donator' to 1 and add credit card
 
                 }
-
             }
-
         }
     });
 
