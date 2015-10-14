@@ -4,16 +4,21 @@ angular.module('wepappApp')
     .controller('mainCtrl', function($scope,$cookies, serverCommService, $location) {
         //$scope.increment =
         $scope.projects =[];
+        $scope.amount = 0;
+        var proExist = 0;
+
         $scope.init = function(){
+
+            if($cookies.get('project_exists') == 1){
+                proExist = 1;
+            }
 
 
             serverCommService.getAllProjects(function(response){
 
-                //console.log(response.length);
-
-
                 //   var projects = response['projects'];
                 if(response.length > 0) {
+                    $scope.amount = response.length;
                     _.forEach(response, function(p){
 
                         var proj = {
@@ -35,6 +40,7 @@ angular.module('wepappApp')
                         getUserImages(proj);
 
                         $scope.projects.push(proj);
+
                     });
                 }
             }, function(){});
@@ -46,13 +52,11 @@ angular.module('wepappApp')
         var getUserImages = function(aProject){
 
 
-
-
             serverCommService.getUserImages(aProject['user_name'], function(response){
 
                 //
-               // console.log("images for user: "+aProject['user_name']);
-               // console.log(response);
+                // console.log("images for user: "+aProject['user_name']);
+                // console.log(response);
                 //console.log(typeof arr);
                 if(response)
                 {
@@ -71,8 +75,8 @@ angular.module('wepappApp')
             }, function(){});
 
 
-      //      console.log("=============");
-      //      console.log('http://localhost/kick_last/TechProject/techProject/server/users/'+aProject['user_name']+"/");
+            //      console.log("=============");
+            //      console.log('http://localhost/kick_last/TechProject/techProject/server/users/'+aProject['user_name']+"/");
 
         }
 

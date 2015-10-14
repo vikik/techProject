@@ -1,5 +1,5 @@
 <div class="row" ng-init="init()  ">
-  <h3 align="left">Amount of valid projects: </h3><br>
+  <h2 align="left">Amount of valid projects: <small> {{amount}} </small></h2><br>
   <div class="col-lg-5" ng-repeat="pro in projects">
     <div class="thumbnail">
       <a href = "#/projectPage?projectName={{pro.project_name}}">
@@ -11,7 +11,6 @@
     </div>
   </div>
 </div>
-</class>
 <div class="col-md-5">
-  <br><input type="button" onclick="location.href='#/addProject';" value="Add your own project" />
+  <br><button class="btn-primary" onclick="location.href='#/myProject';"> Add your own project </button>
 </div>

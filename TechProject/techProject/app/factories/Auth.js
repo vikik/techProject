@@ -1,14 +1,10 @@
-/**
- * Created by VIKI on 08/08/2015.
- */
-
 angular.module('wepappApp')
   .factory('Auth', function(){
+
+
+
     var user={
       name: "guest"
-      //projects: []
-
-
 
     };
 

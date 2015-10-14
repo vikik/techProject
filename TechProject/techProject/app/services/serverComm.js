@@ -103,7 +103,7 @@ angular.module('wepappApp')
         this.getUserImages = function (userName, successCB, failedCB) {
 
             var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
-            console.log(url);
+    //        console.log(url);
             var data = {
                 action: 'getUserImages',
                 user_name: userName
@@ -160,7 +160,7 @@ angular.module('wepappApp')
 
         this.getProjectDetails = function (userName, successCB, failedCB) {
             var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
-            console.log(url);
+         //   console.log(url);
             var data = {
                 action: 'projectFound',
                 user_name: userName
@@ -235,6 +235,31 @@ angular.module('wepappApp')
             );
         };
 
+        this.getForAdmin = function (successCB, failedCB) {
+            var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
+            console.log(url);
+            var data = {
+                action: 'adminPage'
+            };
+
+            this.sendToServer(data, url,
+                function (response) {
+
+                    if (!response.err) {
+                        // toastr.success(response.data.response);
+                        console.log(response);
+                        successCB(response);
+                        // console.log("Service");
+                    }
+                },
+                function (e) {
+                    alert('Server error - please try again later');
+                    console.log(e);
+                    alert('Server error - please try again later');
+                }
+            );
+        };
+
         this.donate = function (projectName, donateAmount, successCB, failedCB) {
             var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
             console.log(url);
@@ -263,6 +288,31 @@ angular.module('wepappApp')
             );
         };
 
+        this.getDonators = function (successCB, failedCB) {
+            var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
+            console.log(url);
+            var data = {
+                action: 'allDonators'
+            };
+
+            this.sendToServer(data, url,
+                function (response) {
+
+                    if (!response.err) {
+                        // toastr.success(response.data.response);
+                        console.log(response);
+                        successCB(response);
+                        // console.log("Service");
+                    }
+                },
+                function (e) {
+                    alert('Server error - please try again later');
+                    console.log(e);
+                    alert('Server error - please try again later');
+                }
+            );
+        };
+
         this.sendToServer = function (data, url, callbackSuccess, callbackError) {
 
       $http({
@@ -279,8 +329,5 @@ angular.module('wepappApp')
         });
 
     };
-
-
-
 
     });

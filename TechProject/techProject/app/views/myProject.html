@@ -1,85 +1,26 @@
 <div class="row" ng-init="init()">
     <div class="col-lg-5">
-        <br><h4>Project Name: {{project.projectName}}</h4>
+
+        <h2>Project Name: <small class="text-primary">{{project.projectName}}</small></h2>
         </br>
-        <iframe id="video" width="700" height="300" ng-src="{{project.video}}" type="video/mp4" frameborder="2" allowfullscreen></iframe>
+
+        <canvas id="pie" class="chart chart-pie" width="200" height="200" chart-legend=true chart-data="data" chart-labels="labels">
+        </canvas>
 
     </div>
 </div>
 <div class="col-lg-12">
     <br>
 
-    <div class="col-lg-12">
-        <img ng-repeat="image in project.images" ng-src="{{image}}" style="width:180px;height:200px">
-
-
-        <br>
-        <br>
-    </div>
-
     <div>
         <pre><b> Project Description: </b><br><br> {{project.desc}} </pre>
-        <br>
     </div>
 
-    <div>
-        <h4> Donate: </h4>
-        <table border="2">
-            <tr class="success">
-                <td>
-                    <div>
-                        <br>
-                        <p align="center"><button ng-click="donate(10)">10&#8362; </button></p>
-                    </div>
-                </td>
-                <td>
-                    <div>
-                        <br>
-                        <p align="center"><button ng-click="donate(50)"> 50&#8362; </button></p>
-                    </div>
-                </td>
-                <td>
-                    <br>
-                    <p align="center"><button ng-click="donate(100)"> 100&#8362; </button></p>
-                </td>
-                <td>
-                    <br>
-                    <p align="center"><button ng-click="donate(500)"> 500&#8362; </button></p>
-                </td>
-                </br>
-            </tr>
-
-            <tr>
-                <td>
-                    <div>
-                        <br>
-                        <p align="center"> And get a <b>T-Shirt </b></p>
-                    </div>
-                </td>
-                <td>
-                    <div>
-                        <br>
-                        <p align="center">And get a <b>Sample of the project</b></p>
-                    </div>
-                </td>
-                <td>
-                    <br>
-                    <p align="center">And get a <b>gift once a year</b></p>
-                </td>
-                <td>
-                    <br>
-                    <p align="center">And get a <b>gift once a month</b></p>
-                </td>
-                </br>
-            </tr>
-
-
-        </table>
-    </div>
-
-<span></br>
+    <br>
     <b> Money Raced: </b> {{project.donated}} &#8362; </br>
     <b> Money left: </b> {{project.moneyLeft}} &#8362; <b> &nbsp &nbsp Percent: </b> {{(project.donated*100)/project.goal}} %</br>
     <b> Target goal: </b> {{project.goal}} &#8362;</br>
-</span>
+    </br>
+
+    <td><button><a href="#/editProject?projectName={{pro.project_name}}"> Edit </a></button> </td>
 </div>

@@ -3,7 +3,6 @@ angular.module('wepappApp')
 
         $scope.init = function(){
 
-
             $scope.project = {
                 projectName: "",
                 goal: "",
@@ -29,11 +28,19 @@ angular.module('wepappApp')
                         $scope.project.projectName = response['project_name'];
                         $scope.project.goal = response['goal'];
                         $scope.project.donated = response['donated'];
-                        $scope.project.moneyLeft = response['goal'] - response['donated'];
+                        var checkMoneyleft =  response['goal'] - response['donated'];
+                        if (checkMoneyleft>0){
+                            $scope.project.moneyLeft = response['goal'] - response['donated'];
+                        }
+                        else{
+                            $scope.project.moneyLeft = 0;
+                        }
+
                         $scope.project.desc = response['desc'];
                         $scope.project.video = $sce.trustAsResourceUrl(response['video']);
 
-
+                        $scope.labels = ["Donated", "Left To Race", "Goal"];
+                        $scope.data = [$scope.project.donated, $scope.project.moneyLeft, $scope.project.goal];
                         //$scope.project.video = $sce.trustAsResourceUrl(response['video']);
 
                         // alert ($scope.project.projectName);
@@ -81,13 +88,15 @@ angular.module('wepappApp')
                 $location.path('/addProject');
             }
         };
-
+/*
         $scope.donate=function(donateAmount){
 
             serverCommService.donate($cookies.get('user_name'), donateAmount, function(response){
 
                 if(response['donated'] == 1)
                 {
+
+                    alert();
 
                     alert("Thank you!");
                     $scope.project.donated = parseInt($scope.project.donated) + parseInt(donateAmount);
@@ -109,7 +118,6 @@ angular.module('wepappApp')
 
 
             }, function(){});
-
-
         }
+        */
     });

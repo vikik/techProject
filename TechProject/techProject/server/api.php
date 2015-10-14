@@ -27,9 +27,7 @@ if(isset($data->action) && $data->action == 'login')
 //        echo $row["project_name"];
 //        return;
 
-        $response = array("err"=>0, "userExists" => 1, "project_name" => $row["project_name"]);
-
-
+        $response = array("err"=>0, "userExists" => 1, "project_name" => $row["project_name"], "admin" => $row["admin"], "donator" => $row["donator"]);
 
         echo json_encode($response);
         return;
@@ -100,8 +98,10 @@ if(isset($data->action) && $data->action == 'projectFoundByPN')
 if(isset($data->action) && $data->action == 'allProjects')
 {
     $link = mysqli_connect("localhost","root","","kickstarter") or die("Error " . mysqli_error($link));
+    $currDate = date("Y-m-d");
 
-    $query=sprintf('SELECT * FROM users WHERE `project_name` <> "";');
+    $query=sprintf('SELECT * FROM users WHERE `project_name` <> "" and `end_date` > "' . $currDate . '";');
+
     $result = mysqli_query($link, $query);
     $resultSet = array();
 
@@ -122,6 +122,45 @@ if(isset($data->action) && $data->action == 'allProjects')
             return;
         }
     */
+}
+
+/******** adminPage	*******/
+if(isset($data->action) && $data->action == 'adminPage')
+{
+    $link = mysqli_connect("localhost","root","","kickstarter") or die("Error " . mysqli_error($link));
+
+    $query=sprintf('SELECT * FROM users WHERE `project_name` <> "";');
+
+    $result = mysqli_query($link, $query);
+    $resultSet = array();
+
+    while($row = mysqli_fetch_array($result)) {
+        $resultSet[] = $row;
+        //echo $resultSet;
+    }
+    echo  json_encode($resultSet);
+
+    return;
+
+}
+
+/******** allDonators	*******/
+
+if(isset($data->action) && $data->action == 'allDonators')
+{
+    $link = mysqli_connect("localhost","root","","kickstarter") or die("Error " . mysqli_error($link));
+
+    $query=sprintf('SELECT * FROM users WHERE `donator` = 1;');
+
+    $result = mysqli_query($link, $query);
+    $resultSet = array();
+
+    while($row = mysqli_fetch_array($result)) {
+        $resultSet[] = $row;
+    }
+    echo  json_encode($resultSet);
+
+    return;
 
 }
 
@@ -202,8 +241,6 @@ if(isset($data->action) && $data->action == 'updateDonation')
 
     $newDonated = $donated + $donate_amount;
 
-    //TODO VIKI UPDATE STATEMENT AND ECHO BACK RESPONSE STATING IF UPDATE HAS SUCCEEDED OR FAILD
-
     $query = sprintf("UPDATE `users` SET `donated`='%d' WHERE `project_name`='%s'" , $newDonated, $projectName);
 
     $result = mysqli_query($link, $query);
@@ -248,5 +285,10 @@ if(isset($data->action) && $data->action == 'getUserImages')
 
 
 }
+
+
+/************* update donator ************/
+
+/************* logout ************/
 
 ?>

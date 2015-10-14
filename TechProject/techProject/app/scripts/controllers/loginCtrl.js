@@ -40,13 +40,16 @@ angular.module('wepappApp')
                         alert('success');
                         $cookies.put('user_name', $scope.loginInfo.email);
 
-                        console.log(response['project_name']);
-                        console.log(response['project_name'].length);
-                        if(response['project_name'].length > 0){
+                        if(response['project_name']  != null ){
                             $cookies.put('project_exists', 1);
-
                         }
 
+                        if(response['admin'] == 1){
+                            $cookies.put('admin', 1);
+                        }
+                        if(response['donator'] == 1){
+                            $cookies.put('donator', 1);
+                        }
 
                         $location.path('/');
 

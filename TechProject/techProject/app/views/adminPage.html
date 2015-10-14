@@ -1,0 +1,51 @@
+<div class="row" ng-init="init()  ">
+    <h2 align="left">Total amount of projects: <small> {{amount}} </small></h2><br>
+    <div>
+        <div class="thumbnail">
+            <table data-toggle="table" border="2">
+                <thead>
+                <tr id="tr">
+                    <td width="200"><b>Project Name</b></td>
+                    <td width="200"><b>Project Owner</b></td>
+                    <td width="200"><b>Goal</b></td>
+                    <td width="200"><b>Money Raced</b></td>
+                    <td width="200"><b>Money Left</b></td>
+                    <td width="200"><b>Description</b></td>
+
+                </tr>
+                </thead>
+
+                <tr id="tr1" ng-repeat="pro in projects">
+                    <td> {{pro.project_name}} </td>
+                    <td> {{pro.pOwner}} </td>
+                    <td> {{pro.goal}} </td>
+                    <td> {{pro.donated}} </td>
+                    <td> {{pro.moneyLeft}} </td>
+                    <td> {{pro.desc}} </td>
+                </tr>
+            </table>
+        </div>
+
+        <br>
+
+        <div class="thumbnail">
+            <table data-toggle="table" border="2">
+                <thead>
+                <tr id="d_tr">
+                    <td width="300"><b>Donator Name</b></td>
+                    <td width="300"><b>email</b></td>
+                    <td width="300"><b>Money donated</b></td>
+
+                </tr>
+                </thead>
+
+                <tr id="d_tr1" ng-repeat="do in donators">
+                    <td> {{do.donatortName}} </td>
+                    <td> {{do.dEmail}} </td>
+                    <td> {{do.dDonated}} </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>
