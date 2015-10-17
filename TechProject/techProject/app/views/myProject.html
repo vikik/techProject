@@ -11,16 +11,21 @@
 </div>
 <div class="col-lg-12">
     <br>
-
-    <div>
-        <pre><b> Project Description: </b><br><br> {{project.desc}} </pre>
-    </div>
+        <pre id="proDetails1"><b><h3> Project Description: </h3></b><br> {{project.desc}} </pre>
 
     <br>
-    <b> Money Raced: </b> {{project.donated}} &#8362; </br>
-    <b> Money left: </b> {{project.moneyLeft}} &#8362; <b> &nbsp &nbsp Percent: </b> {{(project.donated*100)/project.goal}} %</br>
-    <b> Target goal: </b> {{project.goal}} &#8362;</br>
+    <div id="proDetails">
+        <b> Money Raced: </b> {{project.donated}} &#8362; </br>
+        <b> Money left: </b> {{project.moneyLeft}} &#8362; <b> &nbsp &nbsp &nbsp Percent: </b> {{(project.donated*100)/project.goal}} %</br>
+        <b> Target goal: </b> {{project.goal}} &#8362;</br><br>
+
+        <b> End date: </b> {{project.endDate}} </br><br>
+    </div>
     </br>
 
-    <td><button><a href="#/editProject?projectName={{pro.project_name}}"> Edit </a></button> </td>
+    <td>
+        <button id="editPro">
+            <a href="#/editProject?projectName={{project.projectName}}"> Edit </a>
+        </button>
+    </td>
 </div>

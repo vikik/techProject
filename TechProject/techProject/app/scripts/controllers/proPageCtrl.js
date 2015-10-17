@@ -72,74 +72,86 @@ angular.module('wepappApp')
              */
         };
 
-        $scope.donate=function(donateAmount)
+        $scope.updateMoney = function(donateAmount)
         {
-
-            if($cookies.get("donator")==1){
-
-                var projectName = $location.search().projectName;
+            var projectName = $location.search().projectName;
 
 
-                serverCommService.donate(projectName , donateAmount, function(response){
+            serverCommService.donate(projectName , donateAmount, function(response){
 
-                    if(response['donatedProcess'] == 1)
+                if(response['donatedProcess'] == 1)
+                {
+                    var details = prompt("Please enter your creditCard number", "For Example: 12-45-67");
+
+                    if (details != null)
                     {
-                        var creditNum = prompt("Please enter your creditCard number", "For Example: 12-45-67");
+                        var user_name = $cookies.get('user_name');
 
-                        if (creditNum != null)
-                        {
-                            var user_name = $cookies.get('user_name');
+                        serverCommService.updateUsersDonation(user_name,donateAmount, function(response){
 
-                            serverCommService.updateUsersDonation(user_name,donateAmount, function(response){
+                            if(response['creditSuccess'] == 1)
+                            {
+                                alert("Thank you!");
 
-                                if(response['creditSuccess'] == 1)
-                                {
-                                    alert("Thank you!");
-
-                                    $scope.project.donated = parseInt($scope.project.donated) + parseInt(donateAmount);
-                                    var checkMoneyLeft = $scope.project.goal - $scope.project.donated;
-                                    //alert(checkMoneyLeft);
-                                    if(checkMoneyLeft >= 0){
-                                        $scope.project.moneyLeft = checkMoneyLeft
-                                    }
-                                    else{
-                                        $scope.project.moneyLeft = 0;
-                                    }
+                                $scope.project.donated = parseInt($scope.project.donated) + parseInt(donateAmount);
+                                var checkMoneyLeft = $scope.project.goal - $scope.project.donated;
+                                //alert(checkMoneyLeft);
+                                if(checkMoneyLeft >= 0){
+                                    $scope.project.moneyLeft = checkMoneyLeft
                                 }
-                                else {
-                                    alert('Failed to donate, please try again');
+                                else{
+                                    $scope.project.moneyLeft = 0;
                                 }
-                            }, function(){});
+                            }
+                            else {
+                                alert('Failed to donate, please try again');
+                            }
+                        }, function(){});
 
-
-                        }
-                        else {
-                            alert('Failed to donate, please try again');
-                        }
 
                     }
+                    else {
+                        alert('Failed to donate, please try again');
+                    }
 
+                }
+
+            }, function(){});
+        }
+
+        $scope.donate=function(donateAmount)
+        {
+            if($cookies.get("donator")==1)
+            {
+                $scope.updateMoney(donateAmount);
+            }
+
+            else if($cookies.get('user_name') == undefined) { //not a user
+                //user not logged in or not exists
+
+                alert('You need to be logged in to donate');
+                $location.path('/login');
+            }
+
+            else if ($cookies.get("donator")== undefined && $cookies.get('user_name') != undefined){ //user exists but not donator
+                //TO DO update 'donator' to 1 and add credit card
+
+                var user_name = $cookies.get('user_name');
+
+                serverCommService.updateDonator(user_name, function(response){
+
+                    if(response['donatorUpdated'] == 1) {
+                        $cookies.put('donator', 1);
+                        alert('You Joined to the Donators List!');
+
+                        $scope.updateMoney(donateAmount);
+                    }
+
+                    else{
+                        alert('Failed to donate, please try again');
+                    }
                 }, function(){});
 
             }
-
-            else { //not a donator
-                if ($cookies.get('user_name') == undefined) { //user not logged in or not exists
-
-                    alert('You need to be logged in to donate');
-                    $location.path('/login');
-                }
-
-                else { //user exists but not donator
-                    //TO DO update 'donator' to 1 and add credit card
-
-                }
-            }
         }
     });
-
-/*
-
-
-
- */

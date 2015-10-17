@@ -8,6 +8,7 @@ angular.module('wepappApp')
                 goal: "",
                 donated: 0,
                 moneyLeft: 0,
+                endDate:"",
                 desc: "",
                 video: "",
                 images:[
@@ -27,6 +28,7 @@ angular.module('wepappApp')
 
                         $scope.project.projectName = response['project_name'];
                         $scope.project.goal = response['goal'];
+                        $scope.project.endDate = response['endDate'];
                         $scope.project.donated = response['donated'];
                         var checkMoneyleft =  response['goal'] - response['donated'];
                         if (checkMoneyleft>0){

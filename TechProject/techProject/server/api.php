@@ -54,7 +54,7 @@ if(isset($data->action) && $data->action == 'projectFound')
     if(mysqli_num_rows($result) > 0){
 
         $row = $result->fetch_assoc();
-        $response = array("err"=>0, "proFound" => 1, "project_name" => $row["project_name"], "donated" => $row["donated"], "goal" => $row["goal"], "desc" => $row["desc"], "video" => $row["video"]);
+        $response = array("err"=>0, "proFound" => 1, "project_name" => $row["project_name"],"endDate" => $row["end_date"], "donated" => $row["donated"], "goal" => $row["goal"], "desc" => $row["desc"], "video" => $row["video"]);
         echo json_encode($response);
         return;
     }
@@ -319,7 +319,59 @@ if(isset($data->action) && $data->action == 'updateUsersDonation') {
     echo json_encode($response);
 }
 
-/************* update donator ************/
+/************* update donator to 1 ************/
+if(isset($data->action) && $data->action == 'updateDonator')
+{
+
+    $email = $data->user_name;
+
+    $link = mysqli_connect("localhost","root","","kickstarter") or die("Error " . mysqli_error($link));
+
+    $query = sprintf("UPDATE `users` SET `donator`=1 WHERE `email`='%s' "  ,  mysqli_real_escape_string($link, $email));
+//       echo $query;
+//    return;
+    $result = mysqli_query($link, $query);
+    if($result)
+        $response = array("err" => 0, "donatorUpdated" => 1);
+    else
+        $response = array("err" => 0, "donatorUpdated" => 0);
+
+    echo json_encode($response);
+}
+
+/************* update project ************/
+if(isset($data->action) && $data->action == 'UpdateProject')
+{
+    $link = mysqli_connect("localhost", "root", "", "kickstarter") or die("Error " . mysqli_error($link));
+
+    $project_name = $data->project_name;
+    if(isset($data->goal) && !(empty($data->goal))){
+        $goal = $data->goal;
+        $query = sprintf("UPDATE `users` SET `goal`='%d' WHERE `project_name`='%s' " , $goal,  mysqli_real_escape_string($link, $project_name));
+
+    }
+    if(isset($data->desc) && !(empty($data->desc))){
+        $desc = $data->desc;
+        $query = sprintf("UPDATE `users` SET `desc`='%s' WHERE `project_name`='%s'", mysqli_real_escape_string($link,$desc),  mysqli_real_escape_string($link, $project_name));
+
+    }
+
+    if(isset($data->desc) && !(empty($data->desc)) && isset($data->goal) && !(empty($data->goal))) {
+        $goal = $data->goal;
+        $desc = $data->desc;
+        $query = sprintf("UPDATE `users` SET `goal`='%d', `desc`='%s' WHERE `project_name`='%s'",$goal, mysqli_real_escape_string($link, $desc), mysqli_real_escape_string($link, $project_name));
+    }
+
+//       echo $query;
+//    return;
+    $result = mysqli_query($link, $query);
+    if($result)
+        $response = array("err" => 0, "projectUpdated" => 1);
+    else
+        $response = array("err" => 0, "projectUpdated" => 0);
+
+    echo json_encode($response);
+}
 
 /************* logout ************/
 

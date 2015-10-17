@@ -4,7 +4,7 @@
 
 
 angular.module('wepappApp')
-  .service('serverCommService', function ($http) {
+    .service('serverCommService', function ($http) {
 
 
 
@@ -40,35 +40,33 @@ angular.module('wepappApp')
             );
         };
 
+        this.checkIfUserExists = function (userName, password, successCB, failedCB) {
 
+            var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
+            console.log(url);
+            var data = {
+                action: 'login',
+                user_name: userName,
+                password: password
+            };
 
-    this.checkIfUserExists = function (userName, password, successCB, failedCB) {
-
-      var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
-      console.log(url);
-      var data = {
-          action: 'login',
-        user_name: userName,
-        password: password
-      };
-
-      this.sendToServer(data, url,
-        function (response) {
-          if (!response.err) {
-            // toastr.success(response.data.response);
-            // alert('sadasdasdasdasdasdsadsadasd');
-            console.log(response);
-              successCB(response);
-            console.log("Service");
-          }
-        },
-        function (e) {
-          alert('Server error - please try again later');
-          console.log(e);
-          alert('Server error - please try again later');
-        }
-      );
-    };
+            this.sendToServer(data, url,
+                function (response) {
+                    if (!response.err) {
+                        // toastr.success(response.data.response);
+                        // alert('sadasdasdasdasdasdsadsadasd');
+                        console.log(response);
+                        successCB(response);
+                        console.log("Service");
+                    }
+                },
+                function (e) {
+                    alert('Server error - please try again later');
+                    console.log(e);
+                    alert('Server error - please try again later');
+                }
+            );
+        };
 
         this.signUpNewUser = function (userName, email, password, successCB, failedCB) {
 
@@ -103,7 +101,7 @@ angular.module('wepappApp')
         this.getUserImages = function (userName, successCB, failedCB) {
 
             var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
-    //        console.log(url);
+            //        console.log(url);
             var data = {
                 action: 'getUserImages',
                 user_name: userName
@@ -116,7 +114,7 @@ angular.module('wepappApp')
                     if (!response.err) {
                         // toastr.success(response.data.response);
                         // alert('sadasdasdasdasdasdsadsadasd');
-                       // console.log(response);
+                        // console.log(response);
                         successCB(response);
                         console.log("Service");
                     }
@@ -160,7 +158,7 @@ angular.module('wepappApp')
 
         this.getProjectDetails = function (userName, successCB, failedCB) {
             var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
-         //   console.log(url);
+            //   console.log(url);
             var data = {
                 action: 'projectFound',
                 user_name: userName
@@ -197,9 +195,9 @@ angular.module('wepappApp')
                     if (!response.err) {
                         // toastr.success(response.data.response);
                         //alert('sadasdasdasdasdasdsadsadasd');
-                     //   console.log(response);
+                        //   console.log(response);
                         successCB(response);
-                       // console.log("Service");
+                        // console.log("Service");
                     }
                 },
                 function (e) {
@@ -224,7 +222,7 @@ angular.module('wepappApp')
                         // toastr.success(response.data.response);
                         console.log(response);
                         successCB(response);
-                       // console.log("Service");
+                        // console.log("Service");
                     }
                 },
                 function (e) {
@@ -315,6 +313,34 @@ angular.module('wepappApp')
             );
         };
 
+        this.UpdateProject = function (projectName, goal, desc, successCB, failedCB) {
+
+            var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
+            var data = {
+                action: 'UpdateProject',
+                project_name: projectName,
+                goal: goal,
+                desc: desc
+            };
+
+            this.sendToServer(data, url,
+                function (response) {
+                    if (!response.err) {
+                        // toastr.success(response.data.response);
+                        //alert('sadasdasdasdasdasdsadsadasd');
+                        console.log(response);
+                        successCB(response);
+                        //console.log("Service");
+                    }
+                },
+                function (e) {
+                    alert('Server error - please try again later');
+                    console.log(e);
+                    alert('Server error - please try again later');
+                }
+            );
+        };
+
         this.getDonators = function (successCB, failedCB) {
             var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
             console.log(url);
@@ -340,21 +366,48 @@ angular.module('wepappApp')
             );
         };
 
+        this.updateDonator = function (user_name, successCB, failedCB) {
+
+            var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
+            console.log(url);
+            var data = {
+                action: 'updateDonator',
+                user_name: user_name
+            };
+
+            this.sendToServer(data, url,
+                function (response) {
+                    if (!response.err) {
+                        // toastr.success(response.data.response);
+                        // alert('sadasdasdasdasdasdsadsadasd');
+                        console.log(response);
+                        successCB(response);
+                        console.log("Service");
+                    }
+                },
+                function (e) {
+                    alert('Server error - please try again later');
+                    console.log(e);
+                    alert('Server error - please try again later');
+                }
+            );
+        };
+
         this.sendToServer = function (data, url, callbackSuccess, callbackError) {
 
-      $http({
-        method: 'POST',
-        url: url,
-        timeout: 7000,
-        data: data
-      })
-        .success(function (response) {
-          callbackSuccess(response);
-        })
-        .error(function (e) {
-          callbackError(e);
-        });
+            $http({
+                method: 'POST',
+                url: url,
+                timeout: 7000,
+                data: data
+            })
+                .success(function (response) {
+                    callbackSuccess(response);
+                })
+                .error(function (e) {
+                    callbackError(e);
+                });
 
-    };
+        };
 
     });

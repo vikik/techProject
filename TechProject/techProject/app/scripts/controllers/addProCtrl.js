@@ -98,12 +98,7 @@ angular.module('wepappApp')
 
                 }
 
-
             }, function(){});
-
-
-
-
         };
 
 

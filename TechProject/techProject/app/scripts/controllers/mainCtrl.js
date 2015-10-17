@@ -26,6 +26,7 @@ angular.module('wepappApp')
                             goal: "",
                             donated: "",
                             desc: "",
+                            moneyLeft: 0,
                             user_name: "",
                             images: []
                         };
@@ -37,6 +38,13 @@ angular.module('wepappApp')
                         proj['desc'] = p['desc'];
                         //proj['images'] = p['images'];
                         proj['user_name'] = p['email'];
+                        var checkMoneyleft =  p['goal'] - p['donated'];
+                        if (checkMoneyleft>0){
+                            proj['moneyLeft'] = p['goal'] - p['donated'];
+                        }
+                        else{
+                            proj['moneyLeft'] = 0;
+                        }
                         getUserImages(proj);
 
                         $scope.projects.push(proj);

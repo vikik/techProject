@@ -1,16 +1,20 @@
 <div class="row" ng-init="init()  ">
-  <h2 align="left">Amount of valid projects: <small> {{amount}} </small></h2><br>
-  <div class="col-lg-5" ng-repeat="pro in projects">
-    <div class="thumbnail">
-      <a href = "#/projectPage?projectName={{pro.project_name}}">
+    <h2 align="left" id="amount_main">Amount of valid projects: {{amount}} </h2><br>
+    <div class="col-lg-5" ng-repeat="pro in projects">
+        <div class="thumbnail">
+            <a href = "#/projectPage?projectName={{pro.project_name}}">
 
-        <img ng-src="{{pro.images[0]}}" style="width:180px;height:200px">
-      </a>
-      <br><h4>Project Name: {{pro.project_name}}</h4>
-      <p>Money Target: {{pro.goal}} </p>
+                <img ng-src="{{pro.images[0]}}" style="width:180px;height:200px">
+            </a>
+            <br><h4><b>Project Name:</b> {{pro.project_name}}</h4>
+            <p><b>Description: </b>{{pro.desc}} </p>
+            <p><b>Money Target:</b> {{pro.goal}} &#8362;</p>
+            <p><b>Money raced:</b> {{pro.donated}} &#8362;</p>
+            <p><b>Money left: </b> {{pro.moneyLeft}} &#8362; &nbsp <b> Percent: </b> {{(pro.donated*100)/pro.goal}} % </br></p>
+
+        </div>
     </div>
-  </div>
 </div>
 <div class="col-md-5">
-  <br><button class="btn-primary" onclick="location.href='#/myProject';"> Add your own project </button>
+    <br><button class="btn-primary" onclick="location.href='#/myProject';"> Add your own project </button>
 </div>
