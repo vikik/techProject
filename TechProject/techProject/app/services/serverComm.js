@@ -6,16 +6,15 @@
 angular.module('wepappApp')
     .service('serverCommService', function ($http) {
 
+        this.createProject = function (user, projectName, goal, endDate, desc, successCB, failedCB) {
 
-
-
-        this.createProject = function (userName, projectName, goal, endDate, desc, successCB, failedCB) {
+            console.log(user);
 
             var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
             console.log(url);
             var data = {
                 action: 'createProject',
-                user_name: userName,
+                user_name: user,
                 goal: goal,
                 project_name: projectName,
                 end_date: endDate,
@@ -158,7 +157,7 @@ angular.module('wepappApp')
 
         this.getProjectDetails = function (userName, successCB, failedCB) {
             var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
-            //   console.log(url);
+
             var data = {
                 action: 'projectFound',
                 user_name: userName

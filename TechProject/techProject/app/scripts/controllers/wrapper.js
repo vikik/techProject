@@ -10,15 +10,25 @@
 angular.module('wepappApp')
     .controller('WrapperCtrl', function ($scope, $cookies) {
 
-        $scope.proExist=0;
-/*
+
+
+        $scope.proExist = 0;
+        $scope.isAdmin = 0;
+        $scope.logged=0;
+
         if ($cookies.get('project_exists') == 1) {
-            !$scope.proExist;
+            $scope.proExist=1;
         }
-        else{
-            $scope.proExist;
+
+        if ($cookies.get('user') != undefined){
+            $scope.logged=1;
         }
-*/
+
+        if ($cookies.get('admin') != undefined){
+            $scope.admin=1;
+        }
+
+
         /*
          $rootScope.$on("$routeChangeStart", function (event, next) {
          if (!Auth.authorize(next.security)) {

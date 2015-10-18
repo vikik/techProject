@@ -198,7 +198,7 @@ if(isset($data->action) && $data->action == 'signUp')
 if(isset($data->action) && $data->action == 'createProject')
 {
 
-    $projectsOwner = $data->user_name;
+    $email = $data->user_name;
     $projectName= $data->project_name;
     $goal =$data->goal;
     $endDate = $data->end_date;
@@ -206,7 +206,7 @@ if(isset($data->action) && $data->action == 'createProject')
 
     $link = mysqli_connect("localhost","root","","kickstarter") or die("Error " . mysqli_error($link));
 
-    $query = sprintf("UPDATE `users` SET `project_name`='%s', `goal`='%s', `end_date`='%s', `desc`='%s' WHERE `email`='%s' "  ,  mysqli_real_escape_string($link, $projectName), $goal, mysqli_real_escape_string($link, $endDate), mysqli_real_escape_string($link, $desc),  mysqli_real_escape_string($link, $projectsOwner));
+    $query = sprintf("UPDATE `users` SET `project_name`='%s', `goal`='%s', `end_date`='%s', `desc`='%s' WHERE `email`='%s' "  ,  mysqli_real_escape_string($link, $projectName), $goal, mysqli_real_escape_string($link, $endDate), mysqli_real_escape_string($link, $desc),  mysqli_real_escape_string($link, $email));
 //        echo $query;
 //    return;
     $result = mysqli_query($link, $query);

@@ -17,7 +17,7 @@ angular.module('wepappApp')
 
             if($cookies.get('project_exists') == 1)
             {
-                serverCommService.getProjectDetails( $cookies.get('user_name'), function(response){
+                serverCommService.getProjectDetails( $cookies.get('user'), function(response){
 
                     //console.log(response.length);
 
@@ -62,7 +62,7 @@ angular.module('wepappApp')
 
             if($cookies.get('project_exists') == 1)
             {
-                serverCommService.getUserImages( $cookies.get('user_name'), function(response){
+                serverCommService.getUserImages( $cookies.get('user'), function(response){
                     //
                     //var arr = new Array(response['images']);
                     console.log(response.length);
@@ -77,7 +77,7 @@ angular.module('wepappApp')
                             if(response[i] == "..")
                                 continue;
 
-                            $scope.project.images.push('http://localhost/kick_last/TechProject/techProject/server/users/'+$cookies.get('user_name')+"/"+response[i]);
+                            $scope.project.images.push('http://localhost/kick_last/TechProject/techProject/server/users/'+$cookies.get('user')+"/"+response[i]);
                         }
                     }
 

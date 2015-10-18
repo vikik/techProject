@@ -41,17 +41,17 @@
         <div class="collapse navbar-collapse" id="js-navbar-collapse" ng-controller="headerCtrl">
 
             <ul class="nav navbar-nav navbar-right" id="navRigth">
-                <li ng-class="{ active: isActive('/login')}"><a ng-href="#/login">Login</a></li>
-                <li ng-class="{ active: isActive('/signup')}"><a ng-href="#/signup">signUp</a></li>
-                <li ng-class="{ active: isActive('/logout')}"><a ng-href="#/main">Log Out</a></li>
+                <li ng-class="{ active: isActive('/login')}" ng-hide="logged"><a ng-href="#/login">Login</a></li>
+                <li ng-class="{ active: isActive('/signup')}" ng-hide="logged"><a ng-href="#/signup">signUp</a></li>
+                <li ng-class="{ active: isActive('/logout')}" ng-show="logged"><a ng-href="#/main">Log Out</a></li>
                 <li ng-class="{ active: isActive('/about')}"><a ng-href="#/about">About</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-left" id="navLeft">
                 <li ng-class="{ active: isActive('/')}"><a href="#/">Main Page</a></li>
-                <li ng-class="{ active: isActive('/myProject')}"><a ng-href="#/myProject">My Project</a></li>
-                <li ng-class="{ active: isActive('/addProject')}"><a ng-href="#/addProject">Add Project</a></li>
-                <li ng-class="{ active: isActive('/adminPage')}"><a ng-href="#/adminPage">Admin Page</a></li>
+                <li ng-class="{ active: isActive('/myProject')}" ng-show="proExist"><a ng-href="#/myProject">My Project</a></li>
+                <li ng-class="{ active: isActive('/addProject')}" ng-hide="proExist"><a ng-href="#/addProject">Add Project</a></li>
+                <li ng-class="{ active: isActive('/adminPage')}" ng-show="admin"><a ng-href="#/adminPage">Admin Page</a></li>
             </ul>
 
         </div>
@@ -63,7 +63,7 @@
 </div>
 
 <div class="footer">
-    <div class="container" id="thumbs">
+    <div class="container"  id="thumbs">
         <p><span class="glyphicon glyphicon-thumbs-up"></span><b> Lior Ahrak & Viki Kirjner </b></p>
     </div>
 </div>

@@ -38,7 +38,7 @@ angular.module('wepappApp')
                     {
 
                         alert('success');
-                        $cookies.put('user_name', $scope.loginInfo.email);
+                        $cookies.put('user', $scope.loginInfo.email);
 
                         if(response['project_name']  != null ){
                             $cookies.put('project_exists', 1);

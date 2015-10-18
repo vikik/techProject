@@ -85,7 +85,7 @@ angular.module('wepappApp')
 
                     if (details != null)
                     {
-                        var user_name = $cookies.get('user_name');
+                        var user_name = $cookies.get('user');
 
                         serverCommService.updateUsersDonation(user_name,donateAmount, function(response){
 
@@ -126,17 +126,17 @@ angular.module('wepappApp')
                 $scope.updateMoney(donateAmount);
             }
 
-            else if($cookies.get('user_name') == undefined) { //not a user
+            else if($cookies.get('user') == undefined) { //not a user
                 //user not logged in or not exists
 
                 alert('You need to be logged in to donate');
                 $location.path('/login');
             }
 
-            else if ($cookies.get("donator")== undefined && $cookies.get('user_name') != undefined){ //user exists but not donator
+            else if ($cookies.get("donator")== undefined && $cookies.get('user') != undefined){ //user exists but not donator
                 //TO DO update 'donator' to 1 and add credit card
 
-                var user_name = $cookies.get('user_name');
+                var user_name = $cookies.get('user');
 
                 serverCommService.updateDonator(user_name, function(response){
 

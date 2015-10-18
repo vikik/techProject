@@ -1,7 +1,3 @@
-/**
- * Created by VIKI on 20/08/2015.
- */
-
 'use strict';
 
 /**
@@ -25,12 +21,12 @@ angular.module('wepappApp')
         $scope.init = function(){
 
 
-            $scope.user = $cookies.get('user_name');
+            $scope.user = $cookies.get('user');
 
             if( $cookies.get('project_exists') == 1 )
             {
                 alert('Redirecting to your projects page');
-                $location.path('/projectPage');
+                $location.path('/myProject');
 
             }
 
@@ -47,7 +43,7 @@ angular.module('wepappApp')
         $scope.getUser = function(ff, fc, tb){
 
 
-            $scope.user = $cookies.get('user_name');
+            $scope.user = $cookies.get('user');
 
             //DEBUG
             if(!$scope.user)
@@ -63,16 +59,16 @@ angular.module('wepappApp')
                 controllerFn: function ($flow, $file, $message) {
                     //console.log($flow, $file, $message); // Note, you have to JSON.parse message yourself.
 
-
                     console.log($message);
 
                     $file.msg = $message;// Just display message for a convenience
 
 
-                    alert("File uploded successfully!");
 
                 },
                 fileUploadError: function ($flow, $file, $message) {
+
+                    console.log($flow);
 
                     console.log($message); // Note, you have to JSON.parse message yourself.
                 }
@@ -81,15 +77,16 @@ angular.module('wepappApp')
 
         $scope.createProject = function(){
 
+            var user = $cookies.get('user');
 
-            serverCommService.createProject($scope.user, $scope.projectName, $scope.goal, $scope.endDate, $scope.desc, function(response){
+            serverCommService.createProject(user, $scope.projectName, $scope.goal, $scope.endDate, $scope.desc, function(response){
 
                 if(response['projectCreated'] == 1)
                 {
 
                     alert('success');
                     $cookies.put('project_exists',1);
-                    $location.path('/projectPage');
+                    $location.path('/myProject');
 
                 }
                 else{

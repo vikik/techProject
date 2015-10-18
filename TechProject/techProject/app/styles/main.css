@@ -145,8 +145,7 @@ body {
     #body
     {
         background-image: url(http://www.pptbackgrounds.net/uploads/grass-blue-bright-sky-and-a-dandelion-backgrounds-wallpapers.jpg);
-        /*background-repeat: repeat;*/
-        background-size: 120%;
+        background-size: cover;
     }
 
     #thumbs
