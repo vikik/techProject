@@ -32,9 +32,9 @@ angular.module('wepappApp')
                     }
                 },
                 function (e) {
-                    alert('Server error - please try again later');
-                    console.log(e);
-                    alert('Server error - please try again later');
+                    //alert('Server error - please try again later');
+                    //console.log(e);
+                    //alert('Server error - please try again later');
                 }
             );
         };
@@ -60,9 +60,9 @@ angular.module('wepappApp')
                     }
                 },
                 function (e) {
-                    alert('Server error - please try again later');
-                    console.log(e);
-                    alert('Server error - please try again later');
+                    //alert('Server error - please try again later');
+                    //console.log(e);
+                    //alert('Server error - please try again later');
                 }
             );
         };
@@ -90,9 +90,9 @@ angular.module('wepappApp')
                     }
                 },
                 function (e) {
-                    alert('Server error - please try again later');
-                    console.log(e);
-                    alert('Server error - please try again later');
+                    //alert('Server error - please try again later');
+                    //console.log(e);
+                    //alert('Server error - please try again later');
                 }
             );
         };
@@ -115,13 +115,13 @@ angular.module('wepappApp')
                         // alert('sadasdasdasdasdasdsadsadasd');
                         // console.log(response);
                         successCB(response);
-                        console.log("Service");
+                        //console.log("Service");
                     }
                 },
                 function (e) {
-                    alert('Server error - please try again later');
-                    console.log(e);
-                    alert('Server error - please try again later');
+                    //alert('Server error - please try again later');
+                    //console.log(e);
+                    //alert('Server error - please try again later');
                 }
             );
         };
@@ -148,9 +148,9 @@ angular.module('wepappApp')
                     }
                 },
                 function (e) {
-                    alert('Server error - please try again later');
-                    console.log(e);
-                    alert('Server error - please try again later');
+                    //alert('Server error - please try again later');
+                    //console.log(e);
+                    //alert('Server error - please try again later');
                 }
             );
         };
@@ -200,34 +200,33 @@ angular.module('wepappApp')
                     }
                 },
                 function (e) {
-                    alert('Server error - please try again later');
-                    console.log(e);
-                    alert('Server error - please try again later');
+                    //alert('Server error - please try again later');
+                    //console.log(e);
+                    //alert('Server error - please try again later');
                 }
             );
         };
 
         this.getAllProjects = function (successCB, failedCB) {
             var url = 'http://localhost/kick_last/TechProject/techProject/server/api.php';
-            console.log(url);
+          //  console.log(url);
             var data = {
                 action: 'allProjects'
             };
 
             this.sendToServer(data, url,
                 function (response) {
-
                     if (!response.err) {
-                        // toastr.success(response.data.response);
+                         //toastr.success(response.data.response);
                         console.log(response);
                         successCB(response);
-                        // console.log("Service");
+                         console.log("Service");
                     }
                 },
                 function (e) {
-                    alert('Server error - please try again later');
+                    //alert('Server error - please try again later');
                     console.log(e);
-                    alert('Server error - please try again later');
+                    //alert('Server error - please try again later');
                 }
             );
         };
@@ -250,9 +249,9 @@ angular.module('wepappApp')
                     }
                 },
                 function (e) {
-                    alert('Server error - please try again later');
-                    console.log(e);
-                    alert('Server error - please try again later');
+                    //alert('Server error - please try again later');
+                    //console.log(e);
+                    //alert('Server error - please try again later');
                 }
             );
         };
@@ -277,9 +276,9 @@ angular.module('wepappApp')
                     }
                 },
                 function (e) {
-                    alert('Server error - please try again later');
-                    console.log(e);
-                    alert('Server error - please try again later');
+                    //alert('Server error - please try again later');
+                    //console.log(e);
+                    //alert('Server error - please try again later');
                 }
             );
         };
@@ -305,9 +304,9 @@ angular.module('wepappApp')
                     }
                 },
                 function (e) {
-                    alert('Server error - please try again later');
-                    console.log(e);
-                    alert('Server error - please try again later');
+                    //alert('Server error - please try again later');
+                    //console.log(e);
+                    //alert('Server error - please try again later');
                 }
             );
         };
@@ -333,9 +332,9 @@ angular.module('wepappApp')
                     }
                 },
                 function (e) {
-                    alert('Server error - please try again later');
-                    console.log(e);
-                    alert('Server error - please try again later');
+                    //alert('Server error - please try again later');
+                    //console.log(e);
+                    //alert('Server error - please try again later');
                 }
             );
         };
@@ -358,9 +357,9 @@ angular.module('wepappApp')
                     }
                 },
                 function (e) {
-                    alert('Server error - please try again later');
-                    console.log(e);
-                    alert('Server error - please try again later');
+                    //alert('Server error - please try again later');
+                    //console.log(e);
+                    //alert('Server error - please try again later');
                 }
             );
         };
@@ -385,9 +384,9 @@ angular.module('wepappApp')
                     }
                 },
                 function (e) {
-                    alert('Server error - please try again later');
-                    console.log(e);
-                    alert('Server error - please try again later');
+                    //alert('Server error - please try again later');
+                    //console.log(e);
+                    //alert('Server error - please try again later');
                 }
             );
         };

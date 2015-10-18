@@ -10,10 +10,15 @@
     </div>
 </div>
 <div class="col-lg-12">
-    <br>
-        <pre id="proDetails1"><b><h3> Project Description: </h3></b><br> {{project.desc}} </pre>
 
     <br>
+    <pre id="proDetails2"><b><h3> Project Summary: </h3></b><br> {{project.summary}} </pre>
+    <br>
+
+    <br>
+        <pre id="proDetails1"><b><h3> Project Description: </h3></b><br> {{project.desc}} </pre>
+    <br>
+
     <div id="proDetails">
         <b> Money Raced: </b> {{project.donated}} &#8362; </br>
         <b> Money left: </b> {{project.moneyLeft}} &#8362; <b> &nbsp &nbsp &nbsp Percent: </b> {{(project.donated*100)/project.goal}} %</br>

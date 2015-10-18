@@ -10,12 +10,14 @@
  */
 
 angular.module('wepappApp')
-  .controller('addProCtrl', function($scope, $location,  $cookies, serverCommService) {
+    .controller('addProCtrl', function($scope, $location,  $cookies, serverCommService, $window) {
 
-    $scope.projectName ='';
-    $scope.goal ='';
-    $scope.desc ='';
-    $scope.endDate ='';
+        $scope.projectName ='';
+        $scope.goal ='';
+        $scope.desc ='';
+        $scope.summary ='';
+        $scope.video ='';
+        $scope.endDate ='';
 
 
         $scope.init = function(){
@@ -56,22 +58,22 @@ angular.module('wepappApp')
 
         $scope.uploader = {
 
-                controllerFn: function ($flow, $file, $message) {
-                    //console.log($flow, $file, $message); // Note, you have to JSON.parse message yourself.
+            controllerFn: function ($flow, $file, $message) {
+                //console.log($flow, $file, $message); // Note, you have to JSON.parse message yourself.
 
-                    console.log($message);
+                console.log($message);
 
-                    $file.msg = $message;// Just display message for a convenience
+                $file.msg = $message;// Just display message for a convenience
 
 
 
-                },
-                fileUploadError: function ($flow, $file, $message) {
+            },
+            fileUploadError: function ($flow, $file, $message) {
 
-                    console.log($flow);
+                console.log($flow);
 
-                    console.log($message); // Note, you have to JSON.parse message yourself.
-                }
+                console.log($message); // Note, you have to JSON.parse message yourself.
+            }
         };
 
 
@@ -79,7 +81,7 @@ angular.module('wepappApp')
 
             var user = $cookies.get('user');
 
-            serverCommService.createProject(user, $scope.projectName, $scope.goal, $scope.endDate, $scope.desc, function(response){
+            serverCommService.createProject(user,$scope.summary, $scope.video, $scope.projectName, $scope.goal, $scope.endDate, $scope.desc, function(response){
 
                 if(response['projectCreated'] == 1)
                 {
@@ -122,5 +124,5 @@ angular.module('wepappApp')
 //1    }
 
 
-});
+    });
 

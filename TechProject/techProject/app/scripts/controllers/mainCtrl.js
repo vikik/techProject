@@ -1,16 +1,21 @@
 'use strict';
 
 angular.module('wepappApp')
-    .controller('mainCtrl', function($scope,$cookies, serverCommService, $location) {
+    .controller('mainCtrl', function($scope,$cookies, serverCommService) {
         //$scope.increment =
         $scope.projects =[];
         $scope.amount = 0;
         var proExist = 0;
+        $scope.addPro = 0;
 
         $scope.init = function(){
 
             if($cookies.get('project_exists') == 1){
                 proExist = 1;
+            }
+
+            if ($cookies.get('project_exists') == undefined && $cookies.get('user') != undefined) {
+                $scope.addPro = 1;
             }
 
 
@@ -55,7 +60,6 @@ angular.module('wepappApp')
 
 
         };
-
 
         var getUserImages = function(aProject){
 

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
-<body id="body" ng-app="wepappApp" ng-controller="WrapperCtrl">
+<body id="body" ng-app="wepappApp" ng-controller="WrapperCtrl" ng-init="init()">
 <!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -43,14 +43,14 @@
             <ul class="nav navbar-nav navbar-right" id="navRigth">
                 <li ng-class="{ active: isActive('/login')}" ng-hide="logged"><a ng-href="#/login">Login</a></li>
                 <li ng-class="{ active: isActive('/signup')}" ng-hide="logged"><a ng-href="#/signup">signUp</a></li>
-                <li ng-class="{ active: isActive('/logout')}" ng-show="logged"><a ng-href="#/main">Log Out</a></li>
+                <li ng-class="{ active: isActive('/logout')}" ng-show="logged"><a ng-href="#/logout">Log Out</a></li>
                 <li ng-class="{ active: isActive('/about')}"><a ng-href="#/about">About</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-left" id="navLeft">
                 <li ng-class="{ active: isActive('/')}"><a href="#/">Main Page</a></li>
                 <li ng-class="{ active: isActive('/myProject')}" ng-show="proExist"><a ng-href="#/myProject">My Project</a></li>
-                <li ng-class="{ active: isActive('/addProject')}" ng-hide="proExist"><a ng-href="#/addProject">Add Project</a></li>
+                <li ng-class="{ active: isActive('/addProject')}" ng-show="addPro"><a ng-href="#/addProject">Add Project</a></li>
                 <li ng-class="{ active: isActive('/adminPage')}" ng-show="admin"><a ng-href="#/adminPage">Admin Page</a></li>
             </ul>
 
@@ -99,6 +99,7 @@
 
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/loginCtrl.js"></script>
+<script src="scripts/controllers/logoutCtrl.js"></script>
 <script src="scripts/controllers/addProCtrl.js"></script>
 <script src="scripts/controllers/about.js"></script>
 <script src="scripts/controllers/contactCtrl.js"></script>

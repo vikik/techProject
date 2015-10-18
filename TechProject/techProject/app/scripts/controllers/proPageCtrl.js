@@ -15,6 +15,7 @@ angular.module('wepappApp')
                 goal: "",
                 donated: 0,
                 moneyLeft: 0,
+                summary:"",
                 desc: "",
                 video: "",
                 images:[
@@ -41,6 +42,7 @@ angular.module('wepappApp')
                     {
                         $scope.project.moneyLeft = 0;
                     }
+                    $scope.project.summary = response['summary'];
                     $scope.project.desc = response['desc'];
                     $scope.project.video = $sce.trustAsResourceUrl(response['video']);
 

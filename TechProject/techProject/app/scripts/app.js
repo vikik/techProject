@@ -89,6 +89,11 @@ angular
                 controller: 'editProjectCtrl',
                 controllerAs: 'editProjectCtrl'
             })
+            .when('/logout', {
+                templateUrl: 'views/logout.html',
+                controller: 'logoutCtrl',
+                controllerAs: 'logoutCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });

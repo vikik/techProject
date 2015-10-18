@@ -1,24 +1,24 @@
 'use strict';
 
 angular.module('wepappApp')
-    .controller('loginCtrl', function ($scope, $http, $cookies, $location, serverCommService) {
+    .controller('loginCtrl', function ($scope, $http, $cookies, $location, serverCommService,$window) {
 
 
         $scope.isUserLoggedIn = true;
 
-                $scope.loginInfo = {
-                    email: "",
-                    password: ""
-                };
+        $scope.loginInfo = {
+            email: "",
+            password: ""
+        };
 
-                $scope.isUserLoggedIn = false;
+        $scope.isUserLoggedIn = false;
 
-                //Functions
-                $scope.login = function () {
+        //Functions
+        $scope.login = function () {
 
 
 
-                };
+        };
 
 
         $scope.test = function(){
@@ -26,46 +26,49 @@ angular.module('wepappApp')
             alert('sasaasdsadsadsad');
         };
 
-            $scope.loginUser = function(){
+        $scope.loginUser = function(){
 
-              //alert('sadsadadad');
+            //alert('sadsadadad');
 
 
 
-                serverCommService.checkIfUserExists($scope.loginInfo.email, $scope.loginInfo.password, function(response){
+            serverCommService.checkIfUserExists($scope.loginInfo.email, $scope.loginInfo.password, function(response){
 
-                    if(response['userExists'] == 1)
-                    {
+                if(response['userExists'] == 1)
+                {
 
-                        alert('success');
-                        $cookies.put('user', $scope.loginInfo.email);
+                    alert('success');
+                    $cookies.put('user', $scope.loginInfo.email);
 
-                        if(response['project_name']  != null ){
-                            $cookies.put('project_exists', 1);
-                        }
-
-                        if(response['admin'] == 1){
-                            $cookies.put('admin', 1);
-                        }
-                        if(response['donator'] == 1){
-                            $cookies.put('donator', 1);
-                        }
-
-                        $location.path('/');
-
+                    if(response['project_name']  != null ){
+                        $cookies.put('project_exists', 1);
                     }
-                    else{
 
-                        alert('No such user');
-                        $location.path('/signup');
-
+                    if(response['admin'] == 1){
+                        $cookies.put('admin', 1);
+                    }
+                    if(response['donator'] == 1){
+                        $cookies.put('donator', 1);
                     }
 
 
-                }, function(){});
+                    $window.location.reload();
+                    $location.path('/');
+                    $window.location.reload();
+
+                }
+                else{
+
+                    alert('No such user');
+                    $location.path('/signup');
+
+                }
+
+
+            }, function(){});
 
 
 
-            };
+        };
 
-            });
+    });

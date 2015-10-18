@@ -10,6 +10,7 @@ angular.module('wepappApp')
                 moneyLeft: 0,
                 endDate:"",
                 desc: "",
+                summary:"",
                 video: "",
                 images:[
                 ]
@@ -17,7 +18,7 @@ angular.module('wepappApp')
 
             if($cookies.get('project_exists') == 1)
             {
-                serverCommService.getProjectDetails( $cookies.get('user'), function(response){
+                serverCommService.getProjectDetails($cookies.get('user'), function(response){
 
                     //console.log(response.length);
 
@@ -25,6 +26,8 @@ angular.module('wepappApp')
                         // alert("***********");
                         // console.log("**************" + $scope.project.projectName);
                         // console.log("---------" + response['project_name']);
+
+                        console.log(response);
 
                         $scope.project.projectName = response['project_name'];
                         $scope.project.goal = response['goal'];
@@ -39,6 +42,7 @@ angular.module('wepappApp')
                         }
 
                         $scope.project.desc = response['desc'];
+                        $scope.project.summary = response['summary'];
                         $scope.project.video = $sce.trustAsResourceUrl(response['video']);
 
                         $scope.labels = ["Donated", "Left To Race", "Goal"];
@@ -67,6 +71,7 @@ angular.module('wepappApp')
                     //var arr = new Array(response['images']);
                     console.log(response.length);
                     //console.log(typeof arr);
+                    console.log(response);
                     if(response)
                     {
                         for(var  i = 0; i<response.length; i++)

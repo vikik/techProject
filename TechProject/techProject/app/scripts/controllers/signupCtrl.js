@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('wepappApp')
-    .controller('signupCtrl', function ($scope, $http, $cookies, $location, serverCommService){
+    .controller('signupCtrl', function ($scope, $http, $cookies, $location, serverCommService, $window){
 
     //Variables
     $scope.signupInfo = {
@@ -22,7 +22,9 @@ angular.module('wepappApp')
 
                     alert('Succes. User created.');
                     $cookies.put('user', $scope.signupInfo.email);
+                    $window.location.reload();
                     $location.path('/');
+                    $window.location.reload();
 
                 }
                 else{
